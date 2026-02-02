@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f2f2f2;
+}
+
+nav{
+    background:#222;
+    color:white;
+    padding:15px;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+}
+
+.active{font-weight:bold;}
+
+.container{
+    display:flex;
+    justify-content:center;
+    margin-top:80px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    width:300px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+input,button{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+button{
+    background:black;
+    color:white;
+    border:none;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="navbar">
+<h3>Shopping Cart</h3>
+<div class="nav-links">
+<a class="active" href="login.html">Login</a>
+<a href="register.html">Register</a>
+<a href="catalog.html">Catalog</a>
+<a href="cart.html">Cart</a>
+</div>
+</div>
+</nav>
+
+<div class="container">
+<div class="card">
+
+<h3>Login</h3>
+
+<input id="u" placeholder="Username">
+<input id="p" type="password" placeholder="Password">
+
+<button onclick="login()">Submit</button>
+
+<p id="msg"></p>
+
+</div>
+</div>
+
+<script>
+function login(){
+if(u.value==="admin" && p.value==="1234"){
+msg.innerText="Login Successful!";
+msg.style.color="green";
+}else{
+msg.innerText="Invalid Credentials!";
+msg.style.color="red";
+}
+}
+</script>
+
+</body>
+</html>

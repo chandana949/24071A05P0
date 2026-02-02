@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cart</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f2f2f2;}
+
+nav{
+background:#222;
+color:white;
+padding:15px;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+}
+
+.links{display:flex;gap:20px;}
+.links a{color:white;text-decoration:none;}
+
+.container{padding:30px;}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+text-align:center;
+box-shadow:0 0 8px #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="navbar">
+<h3>Shopping Cart</h3>
+<div class="links">
+<a href="login.html">Login</a>
+<a href="register.html">Register</a>
+<a href="catalog.html">Catalog</a>
+<a class="active" href="cart.html">Cart</a>
+</div>
+</div>
+</nav>
+
+<div class="container">
+
+<h3>Your Shopping Cart</h3>
+
+<div id="cartArea" class="grid"></div>
+<p id="emptyMsg"></p>
+
+</div>
+
+<script>
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+if(cart.length===0){
+emptyMsg.innerText="Cart is Empty!";
+}
+
+cart.forEach(item=>{
+cartArea.innerHTML+=`
+<div class="card">
+<h4>${item.name}</h4>
+<p>₹${item.price}</p>
+<p>Qty: ${item.qty}</p>
+</div>`;
+});
+</script>
+
+</body>
+</html>

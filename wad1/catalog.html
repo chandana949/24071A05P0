@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Catalog</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f2f2f2;}
+
+nav{
+background:#222;
+color:white;
+padding:15px;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+}
+
+.links{display:flex;gap:20px;}
+.links a{color:white;text-decoration:none;}
+
+.container{
+padding:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+text-align:center;
+box-shadow:0 0 8px #aaa;
+}
+
+img{
+height:180px;
+object-fit:contain;
+width:100%;
+}
+
+button{
+background:black;
+color:white;
+padding:8px;
+border:none;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="navbar">
+<h3>Shopping Cart</h3>
+<div class="links">
+<a href="login.html">Login</a>
+<a href="register.html">Register</a>
+<a class="active" href="catalog.html">Catalog</a>
+<a href="cart.html">Cart</a>
+</div>
+</div>
+</nav>
+
+<div class="container">
+
+<h3>Mobile Phone Catalog</h3>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/717Q2swzhBL.jpg">
+<h4>Samsung Galaxy S25 Ultra</h4>
+<p>₹130000</p>
+<button onclick="addItem('Samsung Galaxy S25 Ultra',130000)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/61giwQtR1qL._AC_UF1000,1000_QL80_.jpg">
+<h4>iPhone 16 Pro Max</h4>
+<p>₹115000</p>
+<button onclick="addItem('iPhone 16 Pro Max',115000)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://image01-in.oneplus.net/media/202412/17/052a246708df8233d079b3502aeeb327.png">
+<h4>OnePlus 13</h4>
+<p>₹70000</p>
+<button onclick="addItem('OnePlus 13',70000)">Add to Cart</button>
+</div>
+
+</div>
+</div>
+
+<script>
+function addItem(name,price){
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+let found=cart.find(i=>i.name===name);
+
+if(found) found.qty++;
+else cart.push({name,price,qty:1});
+
+localStorage.setItem("cart",JSON.stringify(cart));
+alert("Item added");
+}
+</script>
+
+</body>
+</html>
